@@ -1,0 +1,42 @@
+.dashboard-container{
+    padding: 30px;
+}
+
+.dashboard-box {
+    border: 1px solid #ececec;
+    height: 100%;
+    padding: 16px;
+}
+.dashboard-box .dashboard-header .add-btn{
+    font-weight: 600;
+    
+}
+
+.dashboard-box .dashboard-header h3{
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+
+/* Admin Menu Css */
+
+.list-group .list-group-item{
+    cursor: pointer;
+    margin: 10px 0px;
+    border-radius: 10px;
+    border: 1px solid #ececec;
+    font-size: 16px;
+    color: #7E7E7E;
+    padding: 15px 30px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+}
+
+.list-group .actived{
+    background-color: #3BB77E !important;
+    border: 1px solid #ececec !important;
+    color: white;
+}

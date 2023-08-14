@@ -1,0 +1,6 @@
+.category-banner{
+    background: url(../../../assets/Banners//header-bg.png) no-repeat center center;
+    border-radius: 20px;
+    padding: 70px 80px;
+    background-size: cover;
+}

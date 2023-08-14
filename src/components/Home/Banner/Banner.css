@@ -1,0 +1,95 @@
+.banner{
+    background: url(../../../assets/Banners/BannerBackground.png);
+    padding:45px 20px;
+}
+
+.left-banner{
+    background: url(../../../assets/Banners/Banner3.png);
+    background-size: 100%;
+    border-radius: 30px;
+    font-family: "Quicksand", sans-serif;
+}
+
+.left-banner h2{
+    font-size:42px;
+    line-height: 52px;
+    color: #253D4E;
+    margin:70px 0px 0px 40px;
+    font-weight: 700;
+}
+
+.left-banner span{
+    color: #3BB77E ;
+}
+
+.item-1{
+    background: url(../../../assets/Banners/Banner1.png);
+    
+}
+
+.item-1, .item-2{
+    background-size: cover !important;
+    border-radius: 30px;
+    padding:45px 40px;
+    background-position: center center !important;
+}
+
+.item-1 h1, .item-2 h1{
+    font-size: 53px;
+    margin:20px 0px;
+    color: #253D4E;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.item-1 p, .item-2 p{
+    font-size: 24px;
+    font-family: "Quicksand", sans-serif;
+    color:#7e7e7e;
+    font-weight: 600;
+    margin-bottom:50px;
+}
+
+.item-2{
+    background: url(../../../assets/Banners/Banner2.png);
+}
+
+.subscribe{
+    position: relative;
+}
+
+.subscribe input{
+    height:54px;
+    border-radius:45px;
+    border: 1px solid #ececec;
+    padding:0px 52px;
+    position: relative;
+    width:45%;
+    outline: 0;
+    
+}
+
+.btn-subscribe{
+    background-color: #3BB77E;
+    border-radius: 45px;
+    padding: 15px 45px;
+    position: absolute;
+    border: 1px solid #3BB77E;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    right: 48%;
+}
+
+.btn-subscribe:hover{
+    background-color: #29A56C !important;
+}
+
+.fa-paper-plane{
+    position: absolute;
+    z-index: 1;
+    top: 36%;
+    bottom: 68px;
+    color: #949494;
+    left: 3%;
+}

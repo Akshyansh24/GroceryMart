@@ -1,0 +1,110 @@
+
+.searchbar{
+    border: 2px solid #BCE3C9;
+    border-radius: 2px;
+    font-family: "Quicksand", sans-serif;
+    position: relative;
+}
+
+.searchbar span{
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0px 20px;
+    position: relative;
+}
+
+
+.searchbar span::before{
+    content: '';
+    height: 24px;
+    width: 1px;
+    background-color: #CACACA;
+    position: absolute;
+    left: 78px;
+    top: -3px;
+}
+
+.searchbar span i{
+    position: absolute;
+    top: 5px;
+    right: -17px;
+    font-size: 10px;
+    color: #838383;
+}
+
+.searchbar input{
+    max-width: 600px;
+    border-width: 0px;
+    border-radius: 0 5px 5px 0;
+    margin-left: 20px;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    min-width: 75%;
+}
+
+.searchbar input:focus-visible{
+    border: none !important;
+    outline: 0 !important;
+
+}
+
+.searchbar .searchicon{
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 30px;
+}
+
+.search-result-content{
+    max-height: 200px;
+    background: white;
+    position: absolute;
+    width: 96%;
+    z-index: 9;
+    overflow-y: scroll;
+}
+
+.search-result-content .search-results .search-result-item{
+    display: flex;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.search-result-content .search-results .search-result-item .img-container {
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.search-result-content .search-results .search-result-item .img-container img{
+    height: 100%;
+    width: 100%;
+}
+
+.search-result-content .search-results .search-result-item .search-prod-detail{
+    margin-left: 15px;
+    padding: 7px 0px;
+}
+
+.search-result-content .search-results .search-result-item .search-prod-detail .name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-weight: 600;
+    display: block;
+}
+
+.search-modal .search-result-content .search-results .search-result-item .search-prod-detail .desc {
+    font-size: 14px;
+    line-height: 1;
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,60 @@
+.category-banner{
+    background: url(../../assets/Banners//header-bg.png) no-repeat center center;
+    border-radius: 20px;
+    padding: 70px 80px;
+    background-size: cover;
+    margin: 27px 30px;
+}
+
+.category-products{
+    margin: 27px 30px;
+}
+
+.category-banner h1{
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.breadcrumbs{
+    display: inline-block;
+    padding: 0 30px;
+    background: none;
+    margin: 0 !important;
+    border-radius: 0;
+    /* transform: translateY(15px) ; */
+    background-color: white !important;
+    text-align: center;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+
+}
+
+.breadcrumbs span{
+    margin: 0 5px !important;
+    font-size: 14px;
+    font-weight:700;
+    color: #7E7E7E;
+    font-family: "Quicksand", sans-serif;
+    text-transform: capitalize;
+}
+.breadcrumbs .breadcrumb-first{
+    color: #3BB77E;
+}
+
+.category-products .total-products{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0px;
+    margin-left: 15px;
+    color: #7E7E7E;
+}
+
+.category-products .total-products span{
+    color: #3BB77E;
+}

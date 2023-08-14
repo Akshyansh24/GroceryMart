@@ -1,0 +1,63 @@
+.newsletter{
+    background: url(../../../assets/Banners/banner-10.png) no-repeat center;
+    background-size: cover;
+    padding:84px 78px 0px 78px;
+    clear: both;
+    display: table;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    min-height: 230px;
+}
+
+.newsletter h2{
+    font-family: "Quicksand", sans-serif;   
+    font-weight: 700;
+    font-size: 38px;
+}
+.newsletter p span{
+    color: #3BB77E;
+    cursor: pointer;
+}
+
+.newsletter p{
+    font-size: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 40px;
+    color: #7E7E7E;
+}
+
+.newsletter img{
+    width: 100%;
+}
+
+.newsletter .subscribe{
+    position: relative;
+}
+
+.newsletter .subscribe input{
+    height:54px;
+    border-radius:45px;
+    border: 1px solid #ececec;
+    padding:0px 52px;
+    position: relative;
+    width:75%;
+    outline: 0;
+    
+}
+.newsletter .subscribe .btn-subscribe{
+    background-color: #3BB77E;
+    border-radius: 45px;
+    padding: 15px 45px;
+    position: absolute;
+    border: 1px solid #3BB77E;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    right: 20%;
+}
+
+.btn-subscribe:hover{
+    background-color: #29A56C !important;
+}
