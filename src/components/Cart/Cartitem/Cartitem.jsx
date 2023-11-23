@@ -26,7 +26,7 @@ function Cartitem() {
             <div className="text">
               <span>{p.cartQuantity}</span>
               <span>x</span>
-              <span className="highlight">&#8377; {p.price * p.cartQuantity}</span>
+              <span className="highlight ">&#8377; {p.price * p.cartQuantity}</span>
             </div>
           </div>
         </div>

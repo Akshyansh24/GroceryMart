@@ -13,7 +13,7 @@ function UserMenu() {
             </li>
             <li className= {`list-group-item ${showTabs == 2 ?  "actived" : " " }`} onClick={()=>{setShowTabs(2)}}>Profile</li>
             <li className= {`list-group-item ${showTabs == 3 ?  "actived" : " " }`} onClick={()=>{setShowTabs(3)}}>Orders</li>
-            <li className= {`list-group-item ${showTabs == 5 ?  "actived" : " " }`} onClick={()=>{setShowTabs(5)}}>Logout</li>
+            <li className= {`list-group-item ${showTabs == 4 ?  "actived" : " " }`} onClick={()=>{setShowTabs(4)}}>Manage Address</li>
           </ul>
         </div>
   

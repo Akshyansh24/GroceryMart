@@ -1,0 +1,109 @@
+
+.user-box {
+    margin: 50px 100px;
+}
+
+/* 
+.User-box .login-img img{
+    width: 100%;
+} */
+
+.user-box .card{
+    /* align-items: center;
+    display: flex; */
+    border-radius: 10px;
+}
+
+.user-box .card .heading-span{
+    font-size: 20px;
+    font-family: "Quicksand", sans-serif;
+    color: #fff;
+    line-height: 1.2;
+    text-align: center;
+    display: block;
+    width: 100%;
+    background-color: #3BB77E;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 10px 10px 0px 0px;
+    font-weight: 700;
+}
+
+.user-box .card .card-body input,.user-box .card .card-body select{
+    font-size: 15px;
+    color: #1b3815;
+    line-height: 1.2;
+    position: relative;
+    font-family: "Quicksand", sans-serif;
+    display: block;
+    width: 100%;
+    height: 55px;
+    background: #ebebeb;
+    border-radius: 27px;
+    padding: 0 35px;
+    outline: none;
+    border: none;
+    font-weight: 500;
+}
+
+.user-box .card .card-body select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 24px; /* Optional: Add padding for the new custom arrow icon */
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.user-box .card .card-body span{
+    display: block;
+    text-align: right;
+    margin-right: 15px;
+    font-size: 14px;
+    padding: 12px 0px;
+    font-family: "Quicksand", sans-serif;
+
+}
+
+.user-box .card .card-body span p{
+    text-decoration: none;
+    color: #3BB77E;
+    font-weight: 600;
+    border-bottom: 1px solid #3BB77E;
+    font-family: "Quicksand", sans-serif;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.user-box .card .card-body .submit-btn{
+    background-color: #3BB77E !important;
+    color: white !important;
+    font-weight: 600 !important;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+
+}
+
+.user-box .card .card-body .register-area {
+    margin: 30px 0px;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+
+}
+
+.user-box .card .card-body .register-area p{
+    font-weight: 500;
+    font-size: 14px;
+    margin: 0;
+}
+
+.user-box .card .card-body .register-area .register-area-span{
+    font-weight: 700;
+    font-size: 15px;
+    color: #3BB77E;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 0px;
+    cursor: pointer;
+}

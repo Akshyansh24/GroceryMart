@@ -11,7 +11,6 @@ import Newletter from './components/Home/Newletter/Newletter';
 import Features from './components/Home/Features/Features';
 import SingleProduct from "./components/SingleProduct/SingleProduct"
 import Login from './components/Login/Login';
-import Register from './components/Register/Register';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Success from './components/Success/Success';
@@ -19,7 +18,7 @@ import PrivateRoute from './components/Routes/Private';
 import AdminRoute from './components/Routes/AdminRoute'
 import Userdashboard from './components/UserDashboard/Userdashboard';
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
-import ForgetPassword from './components/Login/ForgetPassword';
+import CartPage from './components/Cart/CartPage';
 function App() {
   return (
       <div>
@@ -35,8 +34,7 @@ function App() {
                         <Route path="/category/:id" element ={<Category/>}/>  
                         <Route path="/product/:pid" element ={<SingleProduct/>}/>  
                         <Route path="/login" element ={<Login/>}/>  
-                        <Route path="/signup" element ={<Register/>}/>  
-                        <Route path="/forgetpassword" element ={<ForgetPassword/>}/>  
+                        <Route path="/cartpage" element ={<CartPage/>}/>  
                         <Route path="/dashboard" element ={<PrivateRoute/>}>
                            <Route path="user" element ={<Userdashboard/>}/> 
                         </Route> 

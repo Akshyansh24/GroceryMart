@@ -92,13 +92,16 @@ function AdminDashboard(props) {
   // For Create  Products
   const [productModel, setProductModel] = useState(false);
   // Product Details
-  const [photo, setPhoto] = useState("");
+  const [mainPhoto, setMainPhoto] = useState("");
+  const [hoverPhoto, setHoverPhoto] = useState("");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [shipping, setShipping] = useState("");
+  const [stock, setstock] = useState("");
+  const [salername, setSalername] = useState(auth?.user.name);
   const [category, setCategory] = useState("");
+  const [discount, setDiscount] = useState();
   
   const createProduct = async(e) =>{
     e.preventDefault();
@@ -108,9 +111,12 @@ function AdminDashboard(props) {
       productData.append("desc", desc)
       productData.append("price", price)
       productData.append("quantity", quantity)
-      productData.append("photo", photo)
+      productData.append("mainPhoto", mainPhoto)
+      productData.append("hoverPhoto", hoverPhoto)
       productData.append("category", category)
-      productData.append("shipping", shipping)
+      productData.append("stock", stock)
+      productData.append("salername", salername)
+      productData.append("discount", discount)
       const {data} = await axios.post(`${process.env.REACT_APP_API}/api/products/create-product`, productData)
 
       if(data.success){
@@ -144,12 +150,14 @@ function AdminDashboard(props) {
   const [editProductModel, seteditProductModel] = useState(false);
   // For Edit Product
   const[eproductId, setEProductId] = useState("");
-  const [ephoto, setEPhoto] = useState("");
+  const [eMainPhoto, setEMainPhoto] = useState("");
+  const [eHoverPhoto, setEHoverPhoto] = useState("");
   const [ename, setEName] = useState("");
   const [edesc, setEDesc] = useState("");
   const [eprice, setEPrice] = useState("");
   const [equantity, setEQuantity] = useState("");
-  const [eshipping, setEShipping] = useState();
+  const [estock, setEstock] = useState();
+  const [esalername, setESalername] = useState(auth?.user.name);
   const [ecategory, setECategory] = useState("");
 
   // Edit Product
@@ -161,9 +169,11 @@ function AdminDashboard(props) {
         setEDesc(res.data.product.desc);
         setEPrice(res.data.product.price)
         setEQuantity(res.data.product.quantity);
-        setEShipping(res.data.product.shipping);
+        setEstock(res.data.product.stock);
         setECategory(res.data.product.category._id);
-        photo && setEPhoto(res.data.product.photo);
+        setESalername(res.data.product.salername);
+        mainPhoto && setEMainPhoto(res.data.product.mainPhoto);
+        hoverPhoto && setEHoverPhoto(res.data.product.hoverPhoto);
         seteditProductModel(true);
       }).catch((error)=>{
         console.log(error);
@@ -180,9 +190,10 @@ function AdminDashboard(props) {
     setEDesc("");
     setEPrice("")
     setEQuantity("");
-    setEShipping("");
+    setEstock("");
     setECategory("");
-    setEPhoto("");
+    setEMainPhoto("")
+    setEHoverPhoto("")
   }
   
   const handleUpdateProduct = async(e) =>{
@@ -194,9 +205,11 @@ function AdminDashboard(props) {
       productData.append("price", eprice)
       productData.append("quantity", equantity)
       // photo &&  productData.append("photo", ephoto)
-       productData.append("photo", ephoto)
+       productData.append("mainPhoto", eMainPhoto)
+       productData.append("hoverPhoto", eHoverPhoto)
       productData.append("category", ecategory)
-      productData.append("shipping", eshipping)
+      productData.append("stock", estock)
+      productData.append("salername", esalername)
       const {data} = await axios.put(`${process.env.REACT_APP_API}/api/products/update-product/${eproductId}`, productData)
 
       if(data.success){
@@ -231,7 +244,55 @@ function AdminDashboard(props) {
   useEffect(() => {
     getAllCategory();
     getAllProducts();
+    getAllOrders();
   }, []);
+
+
+  // For Orders
+  const [orders, setOrders] = useState([]);
+  const [status, setStatus] = useState(["Not Process", "Processing", "stock", "Delivered","Cancelled"]);
+  const [changeStatus, setChangeStatus] = useState("")
+  const getAllOrders = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/auth/all-orders`
+      );
+      setOrders(data.orders);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+    // For Order Product Details
+    const [orderProductDetail, setOrderProductDetail] = useState([]);
+    const [showOrderProductTable, setOrderProductTable] = useState(false);
+    const getProductDetail = async (pid) => {
+      try {
+        const { data } = await axios.get(
+          `${process.env.REACT_APP_API}/api/products/getorderproduct/${pid}`
+        );
+        console.log(data.product.cartItem);
+        setOrderProductDetail(data.product.cartItem);
+        setOrderProductTable(true);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    // For Status Update
+    const handleStatusChange = async(value, orderId) =>{
+      // let answer = window.confirm(`Sttaus update to ${value}`);
+      // if(!answer) return;
+      try {
+        const { data } = await axios.put(
+          `${process.env.REACT_APP_API}/api/auth/order-status/${orderId}`,{status:value}
+        );
+        getAllOrders();
+        toast.success(data.message)
+      } catch (error) {
+        console.log(error);
+      }
+    }
   
   return (
     <div className="dashboard-container">
@@ -302,27 +363,149 @@ function AdminDashboard(props) {
                 {miniLoading == true && <MiniLoader/>}
                 {productModel == true && 
                  <AddProduct categories={categories} createProduct={createProduct} 
-                 setCategory={setCategory} name={name} setName={setName} setPhoto={setPhoto}
-                  photo={photo} desc={desc} setDesc={setDesc} price={price} setPrice={setPrice}
-                   quantity={quantity} setQuantity={setQuantity} setShipping={setShipping} shipping= {shipping}   />}
+                 setCategory={setCategory} name={name} setName={setName} setMainPhoto={setMainPhoto}
+                  mainPhoto={mainPhoto} hoverPhoto={hoverPhoto} setHoverPhoto={setHoverPhoto} desc={desc} setDesc={setDesc} price={price} setPrice={setPrice}
+                   quantity={quantity} setQuantity={setQuantity} setstock={setstock} stock= {stock} salername={salername} discount={discount} setDiscount={setDiscount} />}
                
-                {productModel == false &&  editProductModel == false  && <div className="row">
+                
+                {productModel == false &&  editProductModel == false  &&
+                 <div className="row">
                 {products?.map((p)=>(
-                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-photo/${p._id}`} price={p.price} 
-                 pid={p._id}  seteditProductModel= {seteditProductModel}  editclick={getSingleProduct}  handleDeleteProduct={handleDeleteProduct} Pcategory={p.category}/>
+                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} hoverimg={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${p._id}`}  price={p.price} 
+                 pid={p._id} salername={p.salername} seteditProductModel= {seteditProductModel}  editclick={getSingleProduct}  handleDeleteProduct={handleDeleteProduct} Pcategory={p.category}/>
                 ))}
               </div>}
                 
 
             {editProductModel == true && 
-            <EditProduct categories={categories} createProduct={createProduct} 
-            setCategory={setECategory} name={ename} setName={setEName} setPhoto={setEPhoto}
-             photo={ephoto} desc={edesc} setDesc={setEDesc} price={eprice} setPrice={setEPrice}
-              quantity={equantity} setQuantity={setEQuantity} Eshipping={eshipping} setShipping={setEShipping} Ecategory={ecategory}
-               editProductModel={editProductModel} eproductId={eproductId} handleUpdateProduct={handleUpdateProduct}/>}
+            <EditProduct categories={categories} createProduct={createProduct} setMainPhoto={setEMainPhoto}
+            mainPhoto={mainPhoto} hoverPhoto={eHoverPhoto} setHoverPhoto={setHoverPhoto}
+            setCategory={setECategory} name={ename} setName={setEName}  desc={edesc} setDesc={setEDesc} price={eprice} setPrice={setEPrice}
+              quantity={equantity} setQuantity={setEQuantity} Estock={estock} setstock={setEstock} Ecategory={ecategory}
+               editProductModel={editProductModel} eproductId={eproductId} salername={esalername} handleUpdateProduct={handleUpdateProduct}/>}
               </div>
             </div>
           )}
+
+{showTabs == 4 && (
+            <div className="dashboard-box">
+                 <div className="dashboard-header">
+                <div className="row">
+                  <div className="col-md-6">
+                  <h3>Manage Orders</h3>
+                  </div>
+                 
+                </div>
+              </div>
+              <div className="dashboard-body">
+                <table className="shopping-table  table-bordered">
+                  <thead>
+                    <tr>
+                      <th className="sr-no text-center">#</th>
+                      <th className="text-center">Status</th>
+                      <th className="text-center" scope="col">
+                        Buyer Name
+                      </th>
+                      <th className="text-center" scope="col">
+                        Payment
+                      </th>
+                      <th className="text-center" scope="col">
+                        Total Payment
+                      </th>
+                      <th className="text-center" scope="col">
+                        Action
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <>
+                      {orders.map((o, i) => (
+                        <tr>
+                          <td>{1 + i}</td>
+                          <td>
+                            <select className="form-select" name="status" id="" defaultValue={o.status} onChange={(e)=>{handleStatusChange(e.target.value,o._id)}}>
+                              {status.map((s,i)=>(
+                                <option key={i} value={s}>{s}</option>
+                              ))}
+                            </select>
+                          </td>
+                          <td>{o.buyer.name}</td>
+                          <td>
+                            {o.payment.success == true ? "Success" : "Cancel"}
+                          </td>
+                          <td>{o.payment.transaction.amount}</td>
+                          <td>
+                            <button
+                              className="btn btn-primary"
+                              onClick={() => {
+                                getProductDetail(o._id);
+                              }}
+                            >
+                              View
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  </tbody>
+                </table>
+
+               {showOrderProductTable === true &&  <table className="shopping-table table-bordered product-table table-responsive" style={{height:"200px"}}>
+                  <thead>
+                    <tr>
+                      <th className="sr-no text-center">#</th>
+                      <th className="text-center" colSpan={2}>Product</th>
+                      <th className="text-center" scope="col">
+                        Unit Price
+                      </th>
+                      <th className="text-center" scope="col">
+                        Quanity
+                      </th>
+                      <th className="text-center" scope="col">
+                        Category
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {orderProductDetail.map((p, i) => (
+                      <tr>
+                        <td>{i + 1}</td>
+                        <td className="product-img">
+                          <div className="image-thumbnail">
+                            <img
+                              src={`${process.env.REACT_APP_API}/api/products/product-mainPhoto/${p._id}`}
+                              alt=""
+                            />
+                          </div>
+                        </td>
+                        <td>
+                          <h6>{p.name}</h6>
+                        </td>
+                        <td>
+                          <h4 className="text-body-color">&#8377;{p.price}</h4>
+                        </td>
+
+                        <td>
+                          <h4 className="text-body-color-green">
+                            {p.cartQuantity}
+                          </h4>
+                        </td>
+                        <td>
+                          <h4 className="text-body-color-green">
+                            {p.category.name}
+                          </h4>
+                        </td>
+                      </tr>
+                    ))}
+
+                    
+                  </tbody>
+                </table>}
+              </div>
+            </div>
+          )}
+
+          
         </div>
 
             

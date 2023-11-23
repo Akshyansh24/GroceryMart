@@ -10,9 +10,9 @@ function Cart({showCart, setShowCart}) {
 const {cartItem, auth} = useContext(Context);
 
 const navigate = useNavigate();
-const {clientToken, setClientToken} = useState("");
-const {instance, setInstance} = useState("")
-
+const [clientToken, setClientToken] = useState("");
+const [instanse, setInstanse] = useState("")
+const [loading, setLoading]= useState(false)
 const totalPrice = ()=>{
   try {
     let total = 0;
@@ -21,21 +21,24 @@ const totalPrice = ()=>{
   } catch (error) {
     console.log(error);
   }
-
 }
 
 // Payment
 const getToken = async()=>{
   try {
-    const {data} = await axios.get(`${process.env.REACT_APP_API}/api/product/braintree/token`);
-    setClientToken(data.clientToken)
+    const {data} = await axios.get(`${process.env.REACT_APP_API}/api/products/braintree/token`);
+    setClientToken(data?.clientToken)
   } catch (error) {
     console.log(error);
   }
 }
 
+const handlePayment = () =>{
+  console.log(clientToken);
+}
+
 useEffect(() => {
-// getToken()
+  getToken();
 }, [auth?.token]);
 
   return (
@@ -56,15 +59,19 @@ useEffect(() => {
                 <button onClick={()=>{setShowCart(false)}} className="return-cta">Return To Shop</button>
               </div>
               ) : (
-             <>   <Cartitem/>
+             <>  
+              {/* <Cartitem/> */}
+           
                 <div className="cart-footer">
                 <div className="subtotal">
                     <span className="text">Subtotal:</span>
                     <span className="text total">&#8377; {totalPrice()}</span>
-
                 </div>
                 <div className="button">
                     {auth.user  ? (<button className="checkout-cta" >Place Order</button>):(<button className="checkout-cta" onClick={()=>{navigate('/login')}} >Login</button>)}
+                </div>
+                <div className="button">
+                    {auth.user  ? (<button className="checkout-cta" onClick={handlePayment} >Make Payment</button>):(<button className="checkout-cta" onClick={()=>{navigate('/login')}} >Login</button>)}
                 </div>
             </div></>
               )} 

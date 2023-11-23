@@ -1,11 +1,11 @@
-import {React, useContext, useEffect} from "react";
+import {React, useContext, useEffect, useState} from "react";
 import "./DailyBestSales.css";
 import Carousel from "react-bootstrap/Carousel";
 import Products from "../../Products/Products";
 import Product from "../../Products/Product/Product";
 import { Context } from "../../../utils/context";
 function DailyBestSales() {
-
+  const {categories, discountProducts} = useContext(Context);
   // const categoryid = "1";
   // const {showOldprice , setshowOldprice} = useContext(Context);
   // useEffect(() => {
@@ -19,6 +19,7 @@ function DailyBestSales() {
   //   }
   // }, [])
   
+
   
   return (
     <div>
@@ -26,14 +27,12 @@ function DailyBestSales() {
         <div className="row">
           <div className="col-md-4">
             <div className="section-title">
-              <h3>Popular Products</h3>
+              <h3>Best Discount</h3>
             </div>
           </div>
-          <div className="col-md-8 justify-content-end d-flex">
+          <div className="col-md-8 justify-content-end d-none">
             <ul className="mannul-tabs">
-              <li>All</li>
-              <li>Milk & Dairy</li>
-              <li>Coffee & Tea's</li>
+           
             </ul>
           </div>
         </div>
@@ -51,10 +50,20 @@ function DailyBestSales() {
           <div className="col-md-9">
             <Carousel>
               <Carousel.Item interval={1000}>
-                <Products  />
+                <div className="row">
+                {discountProducts?.map((p)=>(
+                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} hoverimg={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${p._id}`} price={p.price} 
+                 pid={p._id} discount={p.discount}  Pcategory={p.category} salername={p.salername}/>
+                ))}
+                </div>
               </Carousel.Item>
               <Carousel.Item interval={1000}>
-                <Products  />
+              <div className="row">
+                {discountProducts?.map((p)=>(
+                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} hoverimg={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${p._id}`} price={p.price} 
+                 pid={p._id} discount={p.discount}  Pcategory={p.category} salername={p.salername}/>
+                ))}
+                </div>
               </Carousel.Item>
             </Carousel>
           </div>

@@ -16,8 +16,8 @@ function Products({ defaultimg , hoverimg , category, price , name , vendorName}
     <div>
       <div className="row">
       {products?.map((p)=>(
-                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-photo/${p._id}`} price={p.price} 
-                 pid={p._id}  Pcategory={p.category}/>
+                <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} hoverimg={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${p._id}`} price={p.price} 
+                 pid={p._id} discount={p.discount}  Pcategory={p.category} salername={p.salername}/>
                 ))}
           {/* <Product defaultimg={defaultimg} hoverimg={hoverimg} category={category} price={price} name={name} vendorName={vendorName}/>
           <Product defaultimg={defaultimg} hoverimg={hoverimg}  category={category} price={price} name={name} vendorName={vendorName}/>

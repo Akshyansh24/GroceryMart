@@ -56,7 +56,6 @@ const getAllCategory = async () => {
 
 
   // Search-PRoduct
-
   const[searchProduct,setSearchProduct] = useState([])
 useEffect(() => {
   
@@ -79,6 +78,7 @@ useEffect(() => {
     }
     getAllProducts();
     getAllCategory();
+
 }, [])
 
 
@@ -140,6 +140,23 @@ const handleCartProductQuantity = (type, product) =>{
 }
 
 
+// For Set Daily Best sales Product Based On Discount
+const [discountProducts, setDiscountProducts] = useState([]);
+const getDiscountProduct = async() =>{
+  const {data} = await axios.get(`${process.env.REACT_APP_API}/api/products/discount-product/50`)
+  console.log(data.products);
+  setDiscountProducts(data.products)
+}
+
+useEffect(() => {
+  getDiscountProduct();
+}, [])
+
+
+/////////////////////////////For State and pincode
+
+
+
         return (
             <Context.Provider value={{
                 showOldprice,
@@ -161,6 +178,7 @@ const handleCartProductQuantity = (type, product) =>{
                 handleAddToCart,
                 handleRemoveFromCart,
                 handleCartProductQuantity,
+                discountProducts,
                 }}>
                 {children}
             </Context.Provider>

@@ -67,17 +67,15 @@ const handleLogout = () =>{
           </div>
           <div className="col-md-4">
             <div className="right-header d-flex">
-             { auth.user && <div className="user-account" >
+             { auth.user && <Link className="user-account" to={`/dashboard/${auth.user.role === 0 ? 'admin' : 'user'}`}>
                 <img src={Usericon} alt="" />
-                <span onClick={()=>{navigate(`/dashboard/${auth.user.role === 1 ? 'admin' : 'user'}`)}} className="cart-text">My Account</span>
-              </div>}
-              <div className="cart position-relative" onClick={()=>{
-                setShowCart(true);
-              }}>
+                <span className="cart-text">My Account</span>
+              </Link>}
+              <Link className="cart position-relative"  to={'/cartpage'}>
                 <img src={Carticon} alt=""  />
                 {cartItem.length > 0 && <span className="cart-count">{cartItem.length}</span>}
                 <span className="cart-text">Cart</span>
-              </div>
+              </Link>
               {!auth.user ? 
               (<div className="user-account" onClick={()=>{
                 navigate('/Login');
@@ -106,16 +104,19 @@ const handleLogout = () =>{
             <div className="navbar">
               <ul className="mb-0 d-flex">
                 <li className="navbar-links">
+                  <Link to={''} className="navbar-links-anchor">
                   <i className="fa-solid fa-fire"></i>
-                  Deals
-                </li>
-                <li onClick={()=>{navigate("/")}} className="navbar-links">
-                <i className="fa-solid fa-house"></i>
-                  Home
+                  Deals</Link>
                 </li>
                 <li className="navbar-links">
+                <Link className="navbar-links-anchor" to="/">
+                <i className="fa-solid fa-house"></i>
+                  Home</Link>
+                </li>
+                <li className="navbar-links">
+                  <Link className="navbar-links-anchor" to="">
                 <i className="fa-solid fa-books"></i>
-                  About
+                  About</Link>
                 </li>
                 <li className=" navbar-links position-relative category" >
                   Categories

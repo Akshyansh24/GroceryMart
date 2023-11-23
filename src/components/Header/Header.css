@@ -22,8 +22,11 @@
     justify-content: center;
 }
 
-.cart{
+.cart, .user-account{
     cursor: pointer;
+    text-decoration: none;
+    color: #253d4e;
+    font-weight: 600;
 }
 
 .cart-count{
@@ -98,6 +101,11 @@
     margin: 0 21px;
     cursor: pointer;
     
+}
+
+.header-bottom .navbar ul .navbar-links-anchor{
+    text-decoration: none;
+    color: black;
 }
 
 .header-bottom .navbar ul .navbar-links i{

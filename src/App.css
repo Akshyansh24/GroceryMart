@@ -55,10 +55,29 @@
 }
 
 .btn-custom-green{
-  font-family: "Quicksand", sans-serif;
+    font-family: "Quicksand", sans-serif;
     border-radius: 5px;
     font-size: 14px;
     background-color: #3BB77E;
     border: 0;
     color: white;
 }
+
+.text-body-color{
+  color: #7E7E7E !important;
+}
+
+.text-body-color-green{
+  color: #3BB77E !important;
+}
+
+.delete-btn{
+  color: #f74b81;
+  cursor: pointer;
+  transition: .2s all ease-in-out;
+}
+
+.delete-btn:hover{
+  color: red;
+}
+

@@ -33,7 +33,7 @@
 .list-products{
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     max-width: 350px;
     margin-top: 10px;
     padding: 0px;
@@ -45,6 +45,7 @@
     overflow: hidden;
     border-radius: 3px;
     transition: all 0.15s linear;
+    border: 1px solid #dfdfdf;
 }
 
 .list-products li img{
@@ -56,8 +57,6 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, .15);
 }
 
-
-
 .single-product-detail .status{
     display: inline-block;
     padding: 8px 12px;
@@ -67,8 +66,24 @@
     font-size: 14px;
     font-weight: 700;
     line-height: 1;
-    color: #f74b81;
-    background: #fde0e9;
+    color: #fff;
+}
+
+.single-product-detail .discount{
+    background-color: #f59758;
+}
+
+.single-product-detail .new{
+    background-color: #3BB77E;
+}
+
+.single-product-detail .sale{
+    background-color: #67bcee;
+
+}
+
+.single-product-detail .hot{
+    background-color: #f74b81;
 }
 
 .single-product-detail .product-title{
@@ -103,11 +118,27 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 24px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     color: #7E7E7E;
     font-weight: 600;
-    width: 70%;
+    width: 50%;
+    padding: 10px;
     margin-top: 20px;
+    border: 1px solid #dfdfdf;
+    max-height: 160px;
+    overflow-y: scroll;
+}
+
+.single-product .saler{
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 15px;
+    color: #3BB77E;
+    font-weight: 700;
+    width: 50%;
+}
+.single-product-detail .desc p, i{
+    font-size: 14px;
 }
 
 .product-qty strong{
@@ -144,7 +175,7 @@
    .cart-buttons .quantity-buttons{
         margin-top: 10px;
         background: #fff;
-        border: 2px solid #3BB77E !important;
+        border: 2px solid  !important;
         font-size: 16px;
         font-weight: 700;
         color: #3BB77E;
@@ -174,6 +205,8 @@
         top: 4px;
     }
 
+    
+
     .cart-buttons .addToCart{
         padding: 0px 20px;
         border-radius: 5px;
@@ -185,10 +218,15 @@
         font-family: "Quicksand", sans-serif;
         background-color: #3bb77e;
         color: #fff;
+        transition: .2s all ease-in-out;
     }
 
     .cart-buttons .addToCart i{
         margin-right: 10px;
+    }
+
+    .cart-buttons .addToCart:hover{
+        background-color: #FDC040;
     }
 
 

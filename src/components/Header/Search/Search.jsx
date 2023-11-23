@@ -70,7 +70,7 @@ function Search() {
             {searchProduct.map((p)=>(
             <div className="search-result-item" key={p._id} onClick={()=>{navigate(`/product/${p._id}`)}}>
             <div className="img-container">
-              <img src={`${process.env.REACT_APP_API}/api/products/product-photo/${p._id}`} alt="" />
+              <img src={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} alt="" />
             </div>
             <div className="search-prod-detail">
               <span className="name">{p.name}</span>

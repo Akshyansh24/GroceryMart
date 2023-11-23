@@ -6,7 +6,6 @@ import Loader from "../Loader/Loader";
 export default function AdminRoute() {
   const { auth, setAuth, showOk, setShowOk } = useContext(Context);
 
-
   let data = "";
   let responseData ="";
 

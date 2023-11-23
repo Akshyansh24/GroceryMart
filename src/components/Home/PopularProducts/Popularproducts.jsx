@@ -11,7 +11,7 @@ function Popularproducts() {
             <h3>Popular Products</h3>
           </div>
         </div>
-        <div className="col-md-8 justify-content-end d-flex">
+        <div className="col-md-8 d-none justify-content-end d-flex">
           <ul className="mannul-tabs">
             <li>All</li>
             <li>Milk & Dairy</li>

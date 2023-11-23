@@ -101,7 +101,7 @@
 //   const [desc, setDesc] = useState("");
 //   const [price, setPrice] = useState("");
 //   const [quantity, setQuantity] = useState("");
-//   const [shipping, setShipping] = useState("");
+//   const [stock, setstock] = useState("");
 //   const [category, setCategory] = useState("");
   
 //   const createProduct = async(e) =>{
@@ -114,7 +114,7 @@
 //       productData.append("quantity", quantity)
 //       productData.append("photo", photo)
 //       productData.append("category", category)
-//       productData.append("shipping", shipping)
+//       productData.append("stock", stock)
 //       const {data} = await axios.post(`${process.env.REACT_APP_API}/api/products/create-product`, productData)
 
 //       if(data.success){
@@ -153,7 +153,7 @@
 //   const [edesc, setEDesc] = useState("");
 //   const [eprice, setEPrice] = useState("");
 //   const [equantity, setEQuantity] = useState("");
-//   const [eshipping, setEShipping] = useState();
+//   const [estock, setEstock] = useState();
 //   const [ecategory, setECategory] = useState("");
 
 //   // Edit Product
@@ -166,7 +166,7 @@
 //         setEDesc(res.data.product.desc);
 //         setEPrice(res.data.product.price)
 //         setEQuantity(res.data.product.quantity);
-//         setEShipping(res.data.product.shipping);
+//         setEstock(res.data.product.stock);
 //         setECategory(res.data.product.category.name);
 //         photo && setEPhoto(res.data.product.photo);
 //         seteditProductModel(true);
@@ -185,7 +185,7 @@
 //     setEDesc("");
 //     setEPrice("")
 //     setEQuantity("");
-//     setEShipping("");
+//     setEstock("");
 //     setECategory("");
 //     setEPhoto("");
 //   }
@@ -199,7 +199,7 @@
 //       productData.append("quantity", equantity)
 //       productData.append("photo", ephoto)
 //       productData.append("category", ecategory)
-//       productData.append("shipping", eshipping)
+//       productData.append("stock", estock)
 //       const {data} = await axios.put(`${process.env.REACT_APP_API}/api/products/update-product${eproductId}`, productData)
 
 //       if(data.success){
@@ -306,7 +306,7 @@
 //                  <AddProduct categories={categories} createProduct={createProduct} 
 //                  setCategory={setCategory} name={name} setName={setName} setPhoto={setPhoto}
 //                   photo={photo} desc={desc} setDesc={setDesc} price={price} setPrice={setPrice}
-//                    quantity={quantity} setQuantity={setQuantity} setShipping={setShipping}   />}
+//                    quantity={quantity} setQuantity={setQuantity} setstock={setstock}   />}
                
 //                 {productModel == false &&  editProductModel == false  && <div className="row">
 //                 {products?.map((p)=>(
@@ -320,7 +320,7 @@
 //             <EditProduct categories={categories} createProduct={createProduct} 
 //             setCategory={setCategory} name={ename} setName={setEName} setPhoto={setEPhoto}
 //              photo={ephoto} desc={edesc} setDesc={setEDesc} price={eprice} setPrice={setEPrice}
-//               quantity={equantity} setQuantity={setEQuantity} Eshipping={eshipping} setShipping={setShipping} Ecategory={ecategory} editProductModel={editProductModel} eproductId={eproductId} handleUpdateProduct={handleUpdateProduct}/>}
+//               quantity={equantity} setQuantity={setEQuantity} Estock={estock} setstock={setstock} Ecategory={ecategory} editProductModel={editProductModel} eproductId={eproductId} handleUpdateProduct={handleUpdateProduct}/>}
 //               </div>
 //             </div>
 //           )}

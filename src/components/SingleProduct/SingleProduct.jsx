@@ -18,6 +18,7 @@ function SingleProduct() {
       setSingleProd(data.product)
 
       similarProducts(data.product._id, data.product.category._id)
+      showbadge(data.product.discount);
     } catch (error) {
       console.log(error);
       toast.error("Something Went Wrong while getting Single product")
@@ -153,6 +154,21 @@ useEffect(()=>{
     });
   };
 
+  // For Bagde Discount 
+  const[discountBox, setDiscountBox]= useState("")
+
+  const showbadge = (discount) =>{
+    if(discount >= 10 && discount <= 49){
+      setDiscountBox("discount")
+    }else if(discount >= 50 && discount <= 60){
+      setDiscountBox("new")
+    }else if(discount >= 61 && discount <= 79 ){
+      setDiscountBox("sale")
+    }else if(discount >= 80 && discount <= 99){
+      setDiscountBox("hot")
+    }
+  } 
+
   return (
     <div>
       <div className="single-product">
@@ -160,32 +176,37 @@ useEffect(()=>{
           <div className="col-md-5 d-flex justify-content-center">
             <div className="single-product-img">
               <div className="zoom-container">
-                <img src={`${process.env.REACT_APP_API}/api/products/product-photo/${pid}`} alt="" />
+                <img src={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${pid}`} alt="" />
               </div>
               <ul className="list-products">
                 <li className="active">
-                  <img src={`${process.env.REACT_APP_API}/api/products/product-photo/${pid}`} alt=""  />
+                  <img src={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${pid}`} alt=""  />
                 </li>
-                <li>
-                  <img src={singleProd2} alt="" />
+                <li className='mx-2'>
+                <img src={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${pid}`} alt=""  />
                 </li>
-                <li>
-                  <img src={singleProd1} alt=""  />
-                </li>
-                <li>
-                  <img src={singleProd2} alt=""  />
-                </li>
+                
               </ul>
             </div>
           </div>
           <div className="col-md-6">
             <div className="single-product-detail">
-              <span className="status">Hot</span>
+            <span className={`status ${discountBox === "discount" && "discount"} ${discountBox === "sale" && "sale"} ${discountBox === "hot" && "hot"} ${discountBox === "new" && "new"}`}>
+              {discountBox === "discount" && `- ${singleProd.discount}% off`}
+              {discountBox === "sale" && "Sale"}
+              {discountBox === "hot" && "Hot"}
+              {discountBox === "new" && "New"}
+          </span>
               <h2 className="product-title">{singleProd.name}</h2>
               <h3 className="product-price">Rs - {singleProd.price}/- </h3>
               <span className="old-price">$52</span>
               <p className="desc">
+                <p className='mb-0'>Description <i class="fa-solid fa-angle-down"></i></p>
                 {singleProd.desc}
+              </p>
+              <p className="saler">
+                <p className='mb-0'>Saler :- {singleProd.salername}</p>
+                
               </p>
               <div className="product-qty d-flex">
                 <strong>Size/Weight</strong>

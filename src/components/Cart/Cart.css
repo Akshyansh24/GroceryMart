@@ -147,3 +147,168 @@
     100%{ transform: translateX(100%)}
 
 }
+
+
+/* Cart Page */
+
+.card-box{
+    padding: 10px 30px;
+}
+.cart-heading h3{
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 48px;
+}
+
+.cart-heading-text h6, .cart-heading-text span{
+    color: #7E7E7E;
+    font-size: 14px;
+    font-weight: 700;
+
+}
+
+.cart-heading-text span{
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: .2s all ease-in-out;
+}
+.cart-heading-text span:hover{
+    color: white;
+    background-color: #c0c0c0;
+}
+
+.shopping-table{
+        --bs-table-bg: transparent;
+        --bs-table-striped-color: #212529;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212529;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529;
+        vertical-align: top;
+        border-color: #dee2e6;
+
+}
+
+.shopping-table thead th{
+    background-color: #ececec;
+    padding: 18px 4px;
+    font-family: "Quicksand", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #253D4E;
+}
+.card-box  .shopping-table thead th .sr-no{
+    padding: 10px 10px;
+}
+
+
+.card-box  .shopping-table  .product-img .image-thumbnail {
+    margin: 10px;
+}
+.card-box  .shopping-table  .product-img img{
+    max-width: 120px;
+    border: 1px solid #ececec;
+    border-radius: 15px;
+}
+
+
+.shopping-table .quantity-buttons{
+    width: fit-content;
+    display: flex;
+    border:  1px solid #3BB77E;
+    /* margin-bottom: 8px; */
+    height: 30px;
+}
+
+.shopping-table tbody tr{
+    padding: 15px;
+}
+
+.shopping-table tbody tr td{
+    text-align: center;
+}
+
+.shopping-table tbody tr td h4 , .shopping-table tbody tr td h6{
+    font-family: "Quicksand", sans-serif;
+    color: #253D4E;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 14px;
+    margin: 0px;
+}
+
+.shopping-table .quantity-buttons span{
+    font-size: 14px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #3BB77E;
+    font-weight: 700;
+    margin: 2px;
+    transition: 0.2s ease-in-out;
+}
+
+.shopping-table .quantity-buttons .high-light{
+    color: #3BB77E;
+}
+
+.shopping-table .quantity-buttons span:first-child:hover , .shopping-table .quantity-buttons span:last-child:hover{
+   background: rgba(0, 0, 0, 0.05);
+}
+
+
+/*  */
+.shopping-total{
+    padding: 30px;
+}
+
+.shopping-total .shopping-total-inner{
+    padding: 10px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+}
+
+
+.shopping-total .shopping-total-inner .sub-total h6:first-child{
+    color: #B6B6B6;
+
+}
+.shopping-total .shopping-total-inner .sub-total h6:last-child{
+    float: right;
+    color: #3bb77e ;
+    margin-top: 3px;
+}
+
+.shopping-total .shopping-total-inner .sub-total h6, .shopping-total .shopping-total-inner .sub-total h4{
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    display: inline;
+    margin: 0px;
+    font-style: 14px;
+}
+
+.card-box .shopping-total .cart-payment button{
+    width: 40%;
+    margin: 0px 5px;
+    align-items: center;
+}
+
+.btn-custom-green{
+    font-family: "Quicksand", sans-serif;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #3BB77E;
+    border: 0;
+    color: white;
+}

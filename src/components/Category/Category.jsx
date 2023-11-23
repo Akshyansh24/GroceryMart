@@ -34,7 +34,7 @@ function Category() {
       <div className="category-banner">
         <div className="row">
           <div className="col-md-4">
-            <h1>Snacks</h1>
+            <h1 style={{textTransform:"uppercase"}}>{categoryWise.name}</h1>
           </div>
           <div className="col-md-8 d-flex justify-content-end">
             <div className="breadcrumbs">
@@ -51,7 +51,7 @@ function Category() {
         <p className="total-products">We Found <span>{`${catwiseProducts.length}`}</span> Products In This Category !</p>
        <div className="row">
        {catwiseProducts.map((p)=>(
-          <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-photo/${p._id}`} price={p.price} 
+          <Product key={p._id} name={p.name} defaultimg={`${process.env.REACT_APP_API}/api/products/product-mainphoto/${p._id}`} hoverimg={`${process.env.REACT_APP_API}/api/products/product-hoverphoto/${p._id}`} price={p.price} 
           pid={p._id} Pcategory={p.category} />
         ))}
        </div>

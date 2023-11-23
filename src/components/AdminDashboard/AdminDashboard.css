@@ -35,8 +35,150 @@
     font-weight: 700;
 }
 
+.list-group .list-group-item i{
+    margin-right: 10px;
+}
+
 .list-group .actived{
     background-color: #3BB77E !important;
     border: 1px solid #ececec !important;
     color: white;
 }
+
+/* User Dashboard */
+.shopping-table{
+    --bs-table-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+
+}
+
+.shopping-table thead th{
+background-color: #ececec;
+padding: 18px 4px;
+font-family: "Quicksand", sans-serif;
+font-size: 15px;
+font-weight: 700;
+color: #253D4E;
+}
+.dashboard-body .shopping-table thead th .sr-no{
+padding: 10px 10px;
+}
+
+
+.dashboard-body .shopping-table  .product-img .image-thumbnail {
+margin: 10px;
+}
+.dashboard-body .shopping-table  .product-img img{
+max-width: 120px;
+border: 1px solid #ececec;
+border-radius: 15px;
+}
+
+.dashboard-body .shopping-table tbody tr td{
+    padding: 8px 5px;
+    font-weight: 600;
+}
+
+.dashboard-box .product-table td:nth-child(2){
+    border-right: none;
+}
+.dashboard-box .product-table td:nth-child(3){
+    border-left:none ;
+}
+
+/* Manage Address Css */
+
+.add-address-box{
+    border: 3px dashed #C7C7C7;
+    height: 265px;
+    width: 300px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    
+}
+
+.add-address-inner-box{
+    padding: 30px;
+    cursor: pointer;
+    
+}
+
+.add-address-inner-box i{
+    font-size: 30px;
+    color: #C7C7C7;
+}
+
+.add-address-inner-box h3{
+    color: #565959;
+    font-weight: 600;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.address-box{
+    border: 1px solid #C7C7C7;
+    /* height: 230px; */
+    width: 100%;
+}
+
+
+.address-inner-box{
+    padding: 20px;
+}
+.address-inner-box p{
+    margin: 0px;
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.address-inner-box p:first-child{
+    font-weight: 600;
+}
+
+.address-box .address-footer{
+    margin-top: 8px;
+    background-color: #3BB77E;
+    padding: 6px 20px;
+    color: white;
+}
+
+.normal-address{
+    margin-top: 35px;
+}
+/* Default Address */
+.address-box .address-box-header{
+    background-color: #3BB77E;
+    padding: 6px 20px;
+    font-weight: 600;
+    color: white;
+}
+
+.address-box .address-footer span{
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    color: white;
+}
+
+.address-box .address-footer span a{
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+    color: white;
+}
+
+.address-box .address-footer span:hover{
+    color: #FDC040;
+}
+

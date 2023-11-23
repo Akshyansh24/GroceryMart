@@ -11,21 +11,7 @@
   position: relative;
 }
 
-.product-card .badge{
-    display: inline-block;
-    font-size: 12px;
-    line-height: 1;
-    border-radius: 15px 0 20px 0;
-    color: #fff;
-    padding: 9px 20px 10px 20px;
-    position: absolute;
-    left: 0;
-    top: 0px;
-    z-index: 9;
-    background-color: #67bcee;
-}
-
-.product-card .edit-badge{
+.product-card .badge {
   display: inline-block;
   font-size: 12px;
   line-height: 1;
@@ -36,12 +22,41 @@
   left: 0;
   top: 0px;
   z-index: 9;
-  background-color: #3BB77E;
+}
+
+.product-card .sale {
+  background-color: #67bcee;
+}
+
+.product-card .discount {
+  background-color: #f59758;
+}
+
+.product-card .hot {
+  background-color: #f74b81;
+}
+
+.product-card .new {
+  background-color: #3bb77e;
+}
+
+.product-card .edit-badge {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 15px 0 20px 0;
+  color: #fff;
+  padding: 9px 20px 10px 20px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  z-index: 9;
+  background-color: #3bb77e;
   font-weight: 600;
   cursor: pointer;
 }
 
-.product-card .delete-badge{
+.product-card .delete-badge {
   display: inline-block;
   font-size: 12px;
   line-height: 1;
@@ -57,7 +72,7 @@
   cursor: pointer;
 }
 
-.product-card .product-img{
+.product-card .product-img {
   overflow: hidden;
 }
 
@@ -99,7 +114,7 @@
   font-weight: 700;
   font-family: "Quicksand", sans-serif;
   line-height: 20px;
-  margin:0px;
+  margin: 5px 0px;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -122,9 +137,12 @@
   margin-top: 10px;
 }
 
-.product-bottom .product-price{
+.product-bottom .product-price {
   display: flex;
   align-items: center;
+  background-color: #def9ec;
+  padding: 0px 20px;
+  border-radius: 5px;
 }
 .product-bottom .product-price span {
   font-size: 16px;
